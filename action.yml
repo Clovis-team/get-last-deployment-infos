@@ -1,0 +1,24 @@
+name: 'Get the Last Deployment Infos'
+description: 'Get the Last Deployment Infos in an Environment'
+author: 'Andrew Valleteau'
+branding:
+  icon: 'package'
+  color: 'blue'
+inputs:
+  github_token:
+    description: 'The GitHub token (if not provided the environment variable GITHUB_TOKEN will be used instead)'
+    required: false
+  environment:
+    description: 'The environment name'
+    required: true
+outputs:
+  deploymentUrl:
+    description: 'The last deployment url'
+  deploymentStatus:
+    description: 'The last deployment status (SUCCESS | INACTIVE)'
+  deploymentGithubStatus:
+    description: 'The last deployment github status (DESTROYED | ACTIVE)'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
